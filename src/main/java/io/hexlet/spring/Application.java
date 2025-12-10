@@ -36,14 +36,15 @@ public class Application {
     // BEGIN (write your solution here)
     @GetMapping("/posts")
     public List<Post> index(@RequestParam(defaultValue = "10") Integer limit) {
-                var a = posts.stream().limit(limit).toList();
+               final var a = posts.stream().limit(limit).toList();
         return a;
     }
 
     @GetMapping("/posts/{id}")
     public Optional<Post> show(@PathVariable String id) {
-        var a = posts.stream().filter(p -> p.getId().equals(id)).findFirst();
-        return a;
+
+        var b = posts.get(Long.valueOf(id).intValue() - 1);
+        return Optional.ofNullable(b);
     }
     // END
 }
