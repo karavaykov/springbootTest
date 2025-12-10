@@ -2,6 +2,7 @@ plugins {
     java
     id("org.springframework.boot") version "3.2.2"
     id("io.spring.dependency-management") version "1.1.3"
+        //id("io.freefair.lombok") version "8.0.2"
 }
 
 group = "io.hexlet"
@@ -15,6 +16,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-devtools")
+    compileOnly("org.projectlombok:lombok:1.18.30")
+    annotationProcessor("org.projectlombok:lombok:1.18.30")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.30")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
